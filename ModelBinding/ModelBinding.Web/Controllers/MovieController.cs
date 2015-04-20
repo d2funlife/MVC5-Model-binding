@@ -1,8 +1,10 @@
 ﻿#region Using statements
+
 using ModelBinding.BusinessLogic.Managers;
 using ModelBinding.Contracts.Mangers;
 using ModelBinding.Core.Entities;
 using ModelBinding.Core.IEntities;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 #endregion
@@ -18,14 +20,42 @@ namespace ModelBinding.Web.Controllers
             this.movieManger = new MovieManager();
         }
 
+        #region GET
         public ViewResult Index()
         {
             return this.View();
         }
 
+        public ViewResult BaseBinding()
+        {
+            return this.View();
+        }
+
+        public ViewResult LimitBinding()
+        {
+            return this.View();
+        }
+
+        public ViewResult AltBinding()
+        {
+            return this.View();
+        }
+
+        public ViewResult CustomBinding()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        public ViewResult CollectionBinding()
+        {
+            return this.View();
+        }
+        #endregion
+
         #region Bind post model
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult CreateWithouBinding()
         {
             var movie = new Movie
             {
@@ -36,55 +66,66 @@ namespace ModelBinding.Web.Controllers
             };
 
             //do some actions
-            return this.View();
+            return this.View("BaseBinding");
         }
 
         [HttpPost]
-        public ActionResult Create(Movie movie)
+        public ActionResult CreateWithBinding(Movie movie)
         {
             //do some actions
-            return this.View();
+            return this.View("BaseBinding");
         }
         #endregion
 
-        #region Bind limits
+        #region Limit bindings
         [HttpPost]
-        public ActionResult Change([Bind(Include = "Title, Year")]Movie movie)
+        public ActionResult BindInclude([Bind(Include = "Title, Year")]Movie movie)
         {
             //some actions
-            return this.View("Done");
+            return this.View("LimitBinding");
         }
 
         [HttpPost]
-        public ActionResult SecondChange([Bind(Exclude = "Director")]Movie movie)
+        public ActionResult BindExclude([Bind(Exclude = "Director")]Movie movie)
         {
             //some actions
-            return this.View("Done");
+            return this.View("LimitBinding");
         }
         #endregion
 
-        #region Another path to bind
+        #region Alternative binding
         [HttpPost]
-        public ActionResult Change()
+        public ActionResult AlternativeBinding()
         {
             var movie = new Movie();
             this.TryUpdateModel<IEditMovie>(movie);
 
             //some actions
-            return this.View("Done");
+            return this.View("AltBinding");
         }
         #endregion
 
         #region Custom model binder
-        public ViewResult DefaultEdit(int id)
+        [HttpGet]
+        public ViewResult BindingDefault(int id)
         {
             var movie = this.movieManger.GetMovie(id);
-            return this.View("Edit", movie);
+            return this.View("CustomBinding", movie);
         }
 
-        public ViewResult Edit(Movie movie)
+        [HttpGet]
+        public ViewResult BindingCustom(Movie movie)
         {
-            return this.View("Edit", movie);
+            return this.View("CustomBinding", movie);
+        }
+        #endregion
+
+        #region Collection binding
+        [HttpPost]
+        public ActionResult CollectionBinding(ICollection<Movie> movies)
+        {
+            //some actions
+            return this.View("CollectionBinding");
         }
         #endregion
     }

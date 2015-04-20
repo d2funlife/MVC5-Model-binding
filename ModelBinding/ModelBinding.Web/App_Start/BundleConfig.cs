@@ -8,19 +8,25 @@ namespace ModelBinding.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new StyleBundle("~/bundles/pagecss").Include(
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/font-icons/entypo/css/entypo.css",
+                      "~/Content/css/neon-core.css",
+                      "~/Content/css/neon-theme.css",
+                      "~/Content/css/neon-forms.css",
+                      "~/Content/css/custom.css"
+                      ));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/pagejs").Include(
+                        "~/Scripts/jquery-2.1.3.min.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/jquery-ui-1.10.3.minimal.min.js",
+                        "~/Scripts/gsap/main-gsap.js",
+                        "~/Scripts/resizeable.js",
+                        "~/Scripts/neon-api.js",
+                        "~/Scripts/neon-chat.js",
+                        "~/Scripts/neon-custom.js"
+                        ));
         }
     }
 }

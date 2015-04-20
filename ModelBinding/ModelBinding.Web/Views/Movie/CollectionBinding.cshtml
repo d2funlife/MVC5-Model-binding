@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Collection binding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-primary" data-collapsed="0">
+
+    <div class="panel-heading">
+        <div class="panel-title">
+            POST collection (Отправка формы с коллекцией данных)
+        </div>
+        <div class="panel-options">
+            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("CollectionBinding", "Movie", FormMethod.Post, new { @class = "form-horizontal form-groups-bordered" }))
+        {
+            <div class="form-group">
+                <label for="Title" class="col-sm-3 control-label">Title</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[0].Title" value="Форсаж 7" placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Director" class="col-sm-3 control-label">Director</label>
+                <div class="col-sm-5">
+                    <input type="text" class=" form-control" name="[0].Director" value="Джеймс Ван" placeholder=" director">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Rating" class="col-sm-3 control-label">Rating</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[0].Rating" value="7.141" placeholder="Rating">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Year" class="col-sm-3 control-label">Year</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[0].Year" value="2015" placeholder="Year">
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="Title" class="col-sm-3 control-label">Title</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[1].Title" value="Мстители: Эра Альтрона" placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Director" class="col-sm-3 control-label">Director</label>
+                <div class="col-sm-5">
+                    <input type="text" class=" form-control" name="[1].Director" value="Джосс Уидон" placeholder=" director">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Rating" class="col-sm-3 control-label">Rating</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[1].Rating" value="8.254" placeholder="Rating">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Year" class="col-sm-3 control-label">Year</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[1].Year" value="2015" placeholder="Year">
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="Title" class="col-sm-3 control-label">Title</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[2].Title" value="Звёздные войны: Пробуждение силы" placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Director" class="col-sm-3 control-label">Director</label>
+                <div class="col-sm-5">
+                    <input type="text" class=" form-control" name="[2].Director" value="Джей Джей Абрамс" placeholder=" director">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Rating" class="col-sm-3 control-label">Rating</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[2].Rating" value="0" placeholder="Rating">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Year" class="col-sm-3 control-label">Year</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="[2].Year" value="2015" placeholder="Year">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

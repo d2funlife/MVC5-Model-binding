@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Limit binding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12">
+
+    <div class="panel panel-primary" data-collapsed="0">
+
+        <div class="panel-heading">
+            <div class="panel-title">
+                POST with Include (Отправка формы со списком разрешенных полей)
+            </div>
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("BindInclude", "Movie", FormMethod.Post, new { @class = "form-horizontal form-groups-bordered" }))
+            {
+                <div class="form-group">
+                    <label for="Title" class="col-sm-3 control-label">Title</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Title" value="Форсаж 7" placeholder="Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Director" class="col-sm-3 control-label">Director</label>
+                    <div class="col-sm-5">
+                        <input type="text" class=" form-control" name="Director" value="Джеймс Ван" placeholder=" director">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Rating" class="col-sm-3 control-label">Rating</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Rating" value="7.141" placeholder="Rating">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Year" class="col-sm-3 control-label">Year</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Year" value="2015" placeholder="Year">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-5">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="panel panel-primary" data-collapsed="0">
+
+        <div class="panel-heading">
+            <div class="panel-title">
+                POST with Exclude (Отправка формы с исключающими полями модели)
+            </div>
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("BindExclude", "Movie", FormMethod.Post, new { @class = "form-horizontal form-groups-bordered" }))
+            {
+                <div class="form-group">
+                    <label for="Title" class="col-sm-3 control-label">Title</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Title" value="Форсаж 7" placeholder="Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Director" class="col-sm-3 control-label">Director</label>
+                    <div class="col-sm-5">
+                        <input type="text" class=" form-control" name="Director" value="Джеймс Ван" placeholder=" director">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Rating" class="col-sm-3 control-label">Rating</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Rating" value="7.141" placeholder="Rating">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Year" class="col-sm-3 control-label">Year</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Year" value="2015" placeholder="Year">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-5">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>

@@ -1,6 +1,5 @@
 ﻿#region Using statements
 
-using ModelBinding.Web.ModelBind;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -14,7 +13,8 @@ namespace ModelBinding.Web
     {
         protected void Application_Start()
         {
-            ModelBinderProviders.BinderProviders.Add(new MovieModelBinderProvider());
+            //Uncomment for custom binding
+            //ModelBinderProviders.BinderProviders.Add(new MovieModelBinderProvider());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Custom binding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Check custom bind register in Global.asax.cs (Проверьте регистрацию пользоваельского привязчика в Global.asax.cs)</h2>
+<div class="col-md-12">
+    <div class="panel panel-primary" data-collapsed="0">
+        <div class="panel-heading">
+            <div class="panel-title">
+                GET without custom binding (Получение модели без пользовательской привязки данных)
+            </div>
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Url :</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="getDefaultUrl" value="/Movie/BindingDefault?id=1">
+                        <span class="input-group-btn">
+                            <button id="default" class="btn btn-primary btn-success" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary" data-collapsed="0">
+        <div class="panel-heading">
+            <div class="panel-title">
+                GET with custom binding (Получение модели c пользовательской привязкой данных)
+            </div>
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Url :</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="getCustomUrl" value="/Movie/BindingCustom?movie=1">
+                        <span class="input-group-btn">
+                            <button id="custom" class="btn btn-primary btn-success" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script>
+    $("#default").click(function () {
+        var url = $("#getDefaultUrl").val();
+        window.location.replace(url);
+    });
+    $("#custom").click(function () {
+        var url = $("#getCustomUrl").val();
+        window.location.replace(url);
+    });
+</script>
+}
